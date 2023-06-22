@@ -1,0 +1,14 @@
+.lng-select {
+    display: flex;
+}
+
+.lng-select .lng-flag {
+    max-height: 25px;
+    margin-right: 8px;
+    width: 41px;
+}
+
+.lng-select select {
+    padding: 0 8px;
+    height: 25px;
+}

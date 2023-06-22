@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import "./../styles/header.css";
+import LngSelect from "../ui/LngSelect";
 
 const Header = () => {
     return (
@@ -12,6 +14,8 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
+
+            <LngSelect />
         </header>
     );
 };
