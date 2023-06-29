@@ -1,32 +1,11 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import Select from "./Select";
 import "./../styles/lng_select.css";
+import {LngContext} from "../context";
 
 const LngSelect = () => {
-    const languages = {
-        en: "English",
-        ru: "Русский",
-        uk: "Українська",
-        sr: "Crnogorski"
-    };
 
-    const getSystemLng = () => {
-        const navigatorLng = navigator.language.substring(0, 2).toLowerCase();
-        if(!languages.hasOwnProperty(navigatorLng)) {
-            return "en";
-        }
-        return navigatorLng;
-    }
-
-    const onLanguageChanged = (lng) => {
-        setSelectedLng(lng);
-        localStorage.setItem("lang", lng);
-    }
-
-    const defaultLng = localStorage.getItem("lang") || getSystemLng() || "en";
-
-
-    const [selectedLng, setSelectedLng] = useState(defaultLng);
+    const {selectedLng, languages, onLanguageChanged} = useContext(LngContext);
 
     return (
         <div className="lng-select">
