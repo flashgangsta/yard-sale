@@ -1,7 +1,11 @@
 import "./styles/app.css";
 import {useEffect, useState} from "react";
 import Api from "./api/Api";
-import LoadedApp from "./components/LoadedApp";
+import {BrowserRouter} from "react-router-dom";
+import Preloader from "./ui/Preloader";
+import Header from "./page_sections/header";
+import Router from "./Router";
+import Footer from "./page_sections/footer";
 
 function App() {
     const [localizations, setLocalizations] = useState();
@@ -19,8 +23,14 @@ function App() {
     return (
         <>
             {isLocalizationsLoading
-                ? <div>Loading</div>
-                : <LoadedApp/>
+                ? <Preloader/>
+                : <BrowserRouter>
+                    <Header/>
+                    <main>
+                        <Router/>
+                    </main>
+                    <Footer/>
+                </BrowserRouter>
             }
         </>
     );
