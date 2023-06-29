@@ -5,17 +5,24 @@ import LngSelect from "../ui/LngSelect";
 import {LngContext} from "../context";
 
 const Header = () => {
-    const {localizations} = useContext(LngContext);
+    const {translations} = useContext(LngContext);
 
-    console.log(localizations);
+    console.log("Header:", translations);
 
     return (
         <header>
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Main</Link>
-                        <Link to="/about">About</Link>
+                        <Link to="/">{translations.products}</Link>
+                    </li>
+
+                    <li>
+                        <Link to="/about">{translations.about}</Link>
+                    </li>
+
+                    <li>
+                        <Link to="/contacts">{translations.contacts}</Link>
                     </li>
                 </ul>
             </nav>
