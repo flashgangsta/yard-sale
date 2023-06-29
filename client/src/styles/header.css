@@ -9,6 +9,11 @@ header {
     color: white;
 }
 
+header nav li {
+    display: inline-block;
+    margin-right: 16px;
+}
+
 header nav a {
     color: inherit;
 }
