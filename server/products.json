@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "price": 5,
+    "photo_small": "product1_small.jpg",
+    "photo": "product1.jpg"
+  },
+  {
+    "id": 2,
+    "price": 25,
+    "photo_small": "product2_small.jpg",
+    "photo": "product2.jpg"
+  }
+]

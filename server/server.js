@@ -1,18 +1,31 @@
 const express = require("express");
+const cors = require("cors");
+const fsPromises = require("fs/promises");
+const path = require("path");
+const productsJsonPath = path.resolve(__dirname, "./products.json");
 const app = express();
 const port = 5000;
-const cors = require("cors");
+
 let currentLocale;
+
+
+const readJsonFile = async (filePath) => {
+    const data = await fsPromises.readFile(filePath);
+    return JSON.parse(data);
+}
+
+const getLocaleJsonPath = (lng) => {
+    return path.resolve(__dirname, `./${lng}.json`);
+}
 
 app.use(cors({
     origin: "http://localhost:3000"
 }));
 
-app.get("/api/localization", (req, res) => {
-    res.json({
-        "Products": "Products",
-        "About": "About",
-        "Contacts": "Contacts"
+app.get("/api/localization/:lng", (req, res) => {
+    currentLocale = req.params.lng;
+    readJsonFile(getLocaleJsonPath(currentLocale)).then(json => {
+        res.json(json);
     });
 });
 
