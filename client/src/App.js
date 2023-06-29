@@ -9,21 +9,12 @@ import Footer from "./page_sections/footer";
 import {LngContext} from "./context";
 
 function App() {
-    const [localizations, setLocalizations] = useState();
-    const [isLocalizationsLoading, setIsLocalizationsLoading] = useState(true);
-
     const languages = {
         en: "English",
         ru: "Русский",
         uk: "Українська",
         sr: "Crnogorski"
     };
-
-    const onLanguageChanged = (lng) => {
-        setSelectedLng(lng);
-        localStorage.setItem("lang", lng);
-    }
-
     const getSystemLng = () => {
         const navigatorLng = navigator.language.substring(0, 2).toLowerCase();
         if(!languages.hasOwnProperty(navigatorLng)) {
@@ -31,9 +22,18 @@ function App() {
         }
         return navigatorLng;
     }
-
     const defaultLng = localStorage.getItem("lang") || getSystemLng() || "en";
+
     const [selectedLng, setSelectedLng] = useState(defaultLng);
+    const [localizations, setLocalizations] = useState();
+    const [isLocalizationsLoading, setIsLocalizationsLoading] = useState(true);
+
+    const onLanguageChanged = (lng) => {
+        setSelectedLng(lng);
+        localStorage.setItem("lang", lng);
+        console.log(lng, selectedLng);
+        fetchLocalizations();
+    }
 
     async function fetchLocalizations() {
         setLocalizations(await Api.get(Api.URL_LOCALIZATION + selectedLng));
@@ -41,7 +41,7 @@ function App() {
     }
 
     useEffect(() => {
-        fetchLocalizations();
+        onLanguageChanged(defaultLng);
     }, []);
 
     return (
@@ -51,6 +51,7 @@ function App() {
                 : <LngContext.Provider value={{
                     selectedLng,
                     languages,
+                    localizations,
                     onLanguageChanged
                 }}>
                     <BrowserRouter>

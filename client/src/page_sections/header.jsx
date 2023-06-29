@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link} from "react-router-dom";
 import "./../styles/header.css";
 import LngSelect from "../ui/LngSelect";
+import {LngContext} from "../context";
 
 const Header = () => {
+    const {localizations} = useContext(LngContext);
+
     return (
         <header>
             <nav>
