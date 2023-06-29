@@ -1,32 +1,28 @@
-import {BrowserRouter} from "react-router-dom";
-import Header from "./page_sections/header";
-import Footer from "./page_sections/footer";
-import Router from "./Router";
 import "./styles/app.css";
 import {useEffect, useState} from "react";
+import Api from "./api/Api";
+import LoadedApp from "./components/LoadedApp";
 
 function App() {
-    const [localizations, setLocalizations] = useState([{}]);
-    console.log("App")
+    const [localizations, setLocalizations] = useState();
+    const [isLocalizationsLoading, setIsLocalizationsLoading] = useState(true);
+
+    async function fetchLocalizations() {
+        setLocalizations(await Api.get(Api.URL_LOCALIZATION));
+        setIsLocalizationsLoading(false);
+    }
 
     useEffect(() => {
-        fetch("/api/localization").then(
-            response => response.json()
-        ).then(
-            data => {
-                setLocalizations(data)
-            }
-        )
+        fetchLocalizations();
     }, []);
 
     return (
-        <BrowserRouter>
-            <Header/>
-            <main>
-                <Router/>
-            </main>
-            <Footer/>
-        </BrowserRouter>
+        <>
+            {isLocalizationsLoading
+                ? <div>Loading</div>
+                : <LoadedApp/>
+            }
+        </>
     );
 }
 
