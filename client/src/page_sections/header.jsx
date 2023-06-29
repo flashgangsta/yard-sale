@@ -7,6 +7,8 @@ import {LngContext} from "../context";
 const Header = () => {
     const {localizations} = useContext(LngContext);
 
+    console.log(localizations);
+
     return (
         <header>
             <nav>
