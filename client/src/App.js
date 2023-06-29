@@ -12,7 +12,7 @@ function App() {
     const [isLocalizationsLoading, setIsLocalizationsLoading] = useState(true);
 
     async function fetchLocalizations() {
-        setLocalizations(await Api.get(Api.URL_LOCALIZATION));
+        setLocalizations(await Api.get(Api.URL_LOCALIZATION + "en"));
         setIsLocalizationsLoading(false);
     }
 

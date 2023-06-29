@@ -4,7 +4,7 @@ export default class Api {
     }
 
     static get URL_LOCALIZATION() {
-        return "localization"
+        return "localization/"
     }
 
     static async get(url) {
