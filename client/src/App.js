@@ -32,11 +32,11 @@ function App() {
         setSelectedLng(lng);
         localStorage.setItem("lang", lng);
         console.log(lng, selectedLng);
-        fetchLocalizations();
+        fetchLocalizations(lng);
     }
 
-    async function fetchLocalizations() {
-        setLocalizations(await Api.get(Api.URL_LOCALIZATION + selectedLng));
+    async function fetchLocalizations(lng) {
+        setLocalizations(await Api.get(Api.URL_LOCALIZATION + lng));
         setIsLocalizationsLoading(false);
     }
 
