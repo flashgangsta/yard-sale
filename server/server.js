@@ -5,6 +5,7 @@ const path = require("path");
 const productsJsonPath = path.resolve(__dirname, "./products.json");
 const app = express();
 const port = 5000;
+const getProductsJsonPath = path.resolve(__dirname, "./products.json");
 
 let currentLocale;
 
@@ -18,21 +19,22 @@ const getLocaleJsonPath = (lng) => {
     return path.resolve(__dirname, `./${lng}.json`);
 }
 
+
 app.use(cors({
     origin: "http://localhost:3000"
 }));
 
-app.get("/api/localization/:lng", (req, res) => {
+app.get("/api/translations/:lng", (req, res) => {
     currentLocale = req.params.lng;
     readJsonFile(getLocaleJsonPath(currentLocale)).then(json => {
         res.json(json);
     });
 });
 
-app.get("/api/products", (req, res) => {
-    res.json({
-        products: []
-    })
+app.get("/api/products/", (req, res) => {
+    readJsonFile(getProductsJsonPath).then(json => {
+        res.json(json);
+    });
 });
 
 app.listen(port, () => {
