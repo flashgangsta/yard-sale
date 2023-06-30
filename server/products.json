@@ -3,12 +3,36 @@
     "id": 1,
     "price": 5,
     "photo_small": "product1_small.jpg",
-    "photo": "product1.jpg"
+    "photo": "product1.jpg",
+    "name": {
+      "en": "Cat",
+      "ru": "Кот",
+      "uk": "Кіт",
+      "sr": "Mačak"
+    },
+    "description": {
+      "en": "Cat description",
+      "ru": "Кот описание",
+      "uk": "Кіт описання",
+      "sr": "Mačak opisivanje"
+    }
   },
   {
     "id": 2,
     "price": 25,
     "photo_small": "product2_small.jpg",
-    "photo": "product2.jpg"
+    "photo": "product2.jpg",
+    "name": {
+      "en": "Cat",
+      "ru": "Кот",
+      "uk": "Кіт",
+      "sr": "Mačak"
+    },
+    "description": {
+      "en": "Cat description",
+      "ru": "Кот описание",
+      "uk": "Кіт описання",
+      "sr": "Mačak opisivanje"
+    }
   }
 ]

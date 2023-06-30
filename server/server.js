@@ -7,7 +7,7 @@ const app = express();
 const port = 5000;
 const getProductsJsonPath = path.resolve(__dirname, "./products.json");
 
-let currentLocale;
+let currentLocale = "en";
 
 
 const readJsonFile = async (filePath) => {
@@ -33,6 +33,13 @@ app.get("/api/translations/:lng", (req, res) => {
 
 app.get("/api/products/", (req, res) => {
     readJsonFile(getProductsJsonPath).then(json => {
+        json.forEach(el => {
+            const name = el.name[currentLocale];
+            const description = el.description[currentLocale];
+            el.name = name;
+            el.description = description;
+        });
+
         res.json(json);
     });
 });
