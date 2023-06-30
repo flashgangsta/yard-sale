@@ -4,6 +4,7 @@ import PageMain from "./pages/page_main";
 import PageAbout from "./pages/page_about";
 import PageProduct from "./pages/page_product";
 import Page404 from "./pages/page_404";
+import PageContacts from "./pages/page_contacts";
 
 const Router = () => {
     return (
@@ -11,6 +12,7 @@ const Router = () => {
             <Route path="/" element={<PageMain />} />
             <Route path="/about" element={<PageAbout />} />
             <Route path="/product/:id" element={<PageProduct />} />
+            <Route path="/contacts/" element={<PageContacts />} />
             <Route path="*" element={<Page404 />} />
         </Routes>
     );
