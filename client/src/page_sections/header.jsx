@@ -7,27 +7,27 @@ import {LngContext} from "../context";
 const Header = () => {
     const {translations} = useContext(LngContext);
 
-    console.log("Header:", translations);
-
     return (
         <header>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/">{translations.products}</Link>
-                    </li>
+            <div className="wrapper">
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/">{translations.products}</Link>
+                        </li>
 
-                    <li>
-                        <Link to="/about">{translations.about}</Link>
-                    </li>
+                        <li>
+                            <Link to="/about">{translations.about}</Link>
+                        </li>
 
-                    <li>
-                        <Link to="/contacts">{translations.contacts}</Link>
-                    </li>
-                </ul>
-            </nav>
+                        <li>
+                            <Link to="/contacts">{translations.contacts}</Link>
+                        </li>
+                    </ul>
+                </nav>
 
-            <LngSelect />
+                <LngSelect />
+            </div>
         </header>
     );
 };

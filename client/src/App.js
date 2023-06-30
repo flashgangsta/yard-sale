@@ -32,7 +32,7 @@ function App() {
     }
 
     async function fetchTranslates(lng) {
-        const json = await Api.get(Api.URL_LOCALIZATION + lng);
+        const json = await Api.getTranslations(lng);
         setTranslations(json);
         setSelectedLng(lng);
         if(isLoading) {
@@ -41,18 +41,14 @@ function App() {
     }
 
     function onLanguageChanged(lng) {
-        console.log("onLanguageChanged to " + lng);
         fetchTranslates(lng);
     }
 
 
     useEffect(() => {
-        console.log("useEffect");
         fetchTranslates(initialLng);
         // eslint-disable-next-line
     }, []);
-
-    console.log("App");
 
     return (
         <>

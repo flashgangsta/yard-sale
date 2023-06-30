@@ -4,9 +4,11 @@ const Product = (props) => {
     return (
         <li className="product">
             <img src={`${process.env.PUBLIC_URL}/images/${props.data.picture}`} alt={props.data.title} />
-            <div>{props.data.title}</div>
-            <div>{props.data.price}</div>
-            <div>{props.data.description}</div>
+            <div className="capture">
+                <h3>{props.data.title}</h3>
+                <div>{props.data.price}</div>
+                <div>{props.data.description}</div>
+            </div>
         </li>
     );
 };

@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {LngContext} from "../context";
 
-const PageContact = () => {
+const PageContacts = () => {
+
+    const {translations} = useContext(LngContext);
+
     return (
-        <div>
-            Page contact
+        <div id="pageContacts" className="page">
+            <h1>{translations.contacts}</h1>
         </div>
     );
 };
 
-export default PageContact;
+export default PageContacts;
