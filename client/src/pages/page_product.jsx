@@ -2,8 +2,8 @@ import React from 'react';
 
 const PageProduct = () => {
     return (
-        <div>
-            Product page
+        <div id="pageProduct" className="page">
+            <h1>Product page</h1>
         </div>
     );
 };

@@ -1,3 +1,33 @@
-#pageMain {
-    
+#pageMain ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#pageMain ul li {
+    margin: 8px 4px;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+#pageMain ul li img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#pageMain ul li:hover .capture {
+    transform: translateY(100%);
+}
+
+#pageMain ul li .capture {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    color: white;
+    padding: 16px;
+    transition: all .3s ease-in-out;
 }
